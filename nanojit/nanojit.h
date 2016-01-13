@@ -77,6 +77,11 @@ namespace nanojit
 
     #if defined(_DEBUG)
 
+        /*
+         * BUG BUG BUG: These macros are breaking the build on Windows and I have no planned
+         * further development on this library so rather than waste time lets let them default to
+         * disabled.
+
         #define __NanoAssertMsgf(a, file_, line_, f, ...)  \
             if (!(a)) { \
                 avmplus::AvmLog("Assertion failure: " f "%s (%s:%d)\n", __VA_ARGS__, #a, file_, line_); \
@@ -88,7 +93,7 @@ namespace nanojit
         #define NanoAssertMsgf(a,f,...)   do { __NanoAssertMsgf(a, __FILE__, __LINE__, f ": ", __VA_ARGS__); } while (0)
         #define NanoAssertMsg(a,m)        do { __NanoAssertMsgf(a, __FILE__, __LINE__, "\"%s\": ", m); } while (0)
         #define NanoAssert(a)             do { __NanoAssertMsgf(a, __FILE__, __LINE__, "%s", ""); } while (0)
-    #else
+    #else */
         #define NanoAssertMsgf(a,f,...)   do { } while (0) /* no semi */
         #define NanoAssertMsg(a,m)        do { } while (0) /* no semi */
         #define NanoAssert(a)             do { } while (0) /* no semi */

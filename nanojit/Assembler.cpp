@@ -942,7 +942,6 @@ typedef void* (*decode_instructions_ftype) (void* start, void* end,
         })
 
         // Used for debug printing, if needed
-        debug_only(ValidateReader *validate = NULL;)
         verbose_only(
         ReverseLister *pp_init = NULL;
         ReverseLister *pp_after_sf = NULL;
@@ -953,12 +952,6 @@ typedef void* (*decode_instructions_ftype) (void* start, void* end,
 
         // set up backwards pipeline: assembler <- StackFilter <- LirReader
         LirFilter* lir = new (alloc) LirReader(frag->lastIns);
-
-#ifdef DEBUG
-        // VALIDATION
-        validate = new (alloc) ValidateReader(lir);
-        lir = validate;
-#endif
 
         // INITIAL PRINTING
         verbose_only( if (_logc->lcbits & LC_ReadLIR) {
