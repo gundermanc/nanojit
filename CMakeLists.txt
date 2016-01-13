@@ -44,7 +44,7 @@ add_library(nanojit
     nanojit/Nativei386.cpp
     nanojit/RegAlloc.cpp
     nanojit/njconfig.cpp
-    AVMPI/float4support.cpp
+    AVMPI/float4Support.cpp
 )
 
 add_library(njutil
