@@ -647,7 +647,7 @@ FragmentAssembler::assemble_jump(bool isCond)
     }
     string name = pop_front(mTokens);
     LIns *ins = mLir->insBranch(mOpcode, condition, NULL);
-    mJumps.push_back(make_pair<string, LIns*>(name, ins));
+    mJumps.push_back(make_pair(name, ins));
     return ins;
 }
 
@@ -827,7 +827,7 @@ FragmentAssembler::assemble_jump_jov()
     string name = mTokens[2];
 
     LIns *ins = mLir->insBranchJov(mOpcode, a, b, NULL);
-    mJumps.push_back(make_pair<string, LIns*>(name, ins));
+    mJumps.push_back(make_pair(name, ins));
     return ins;
 }
 
