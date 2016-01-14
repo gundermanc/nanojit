@@ -75,13 +75,12 @@ namespace nanojit
      */
     const uint32_t MAXARGS = 8;
 
+    /*
+    * BUG BUG BUG: These macros are breaking the build on Windows and I have no planned
+    * further development on this library so rather than waste time lets let them default to
+    * disabled.
+    *
     #if defined(_DEBUG)
-
-        /*
-         * BUG BUG BUG: These macros are breaking the build on Windows and I have no planned
-         * further development on this library so rather than waste time lets let them default to
-         * disabled.
-
         #define __NanoAssertMsgf(a, file_, line_, f, ...)  \
             if (!(a)) { \
                 avmplus::AvmLog("Assertion failure: " f "%s (%s:%d)\n", __VA_ARGS__, #a, file_, line_); \
@@ -97,7 +96,7 @@ namespace nanojit
         #define NanoAssertMsgf(a,f,...)   do { } while (0) /* no semi */
         #define NanoAssertMsg(a,m)        do { } while (0) /* no semi */
         #define NanoAssert(a)             do { } while (0) /* no semi */
-    #endif
+    // #endif
 
     /*
      * Sun Studio C++ compiler has a bug
