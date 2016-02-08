@@ -1,5 +1,8 @@
 macro(define_nanojit_platform)
     add_definitions(-DFEATURE_NANOJIT -DVMCFG_NANOJIT)
+    if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
+        add_definitions( -DDEBUG -D_DEBUG -DNJ_VERBOSE)
+    endif ()
     if (NOT ANDROID)
         if (CMAKE_SIZEOF_VOID_P EQUAL 8)
             add_definitions (-DAVMPLUS_AMD64 -DNANOJIT_64BIT -DVMCFG_SSE2)

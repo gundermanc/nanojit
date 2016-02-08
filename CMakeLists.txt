@@ -8,10 +8,6 @@ add_definitions(-DFEATURE_NANOJIT -DVMCFG_NANOJIT)
 include ("cmake_macros.cmake")
 define_nanojit_platform()
 
-if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
-    add_definitions( -DDEBUG -D_DEBUG -DNJ_VERBOSE)
-endif ()
-
 set(NANOJIT_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Nanojit cxx flags")
 
 # Travis CI Compatible C++11 Support
